@@ -7,41 +7,49 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-    background-color: #121212;
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
     color: #ffffff;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 .page {
     display: none;
     min-height: 100vh;
     padding: 20px;
+    width: 100%;
 }
 
 .page.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Login Page */
 .login-container {
+    width: 100%;
     max-width: 400px;
-    margin: 100px auto;
     padding: 30px;
     background-color: #1e1e1e;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     text-align: center;
+    border: 1px solid #333;
 }
 
 .login-container h1 {
     color: #25d366;
     margin-bottom: 10px;
     font-size: 2rem;
+    font-weight: 700;
 }
 
 .login-container p {
     color: #aaa;
     margin-bottom: 30px;
+    font-size: 0.95rem;
 }
 
 /* Input Styles */
@@ -55,107 +63,131 @@ body {
     margin-bottom: 8px;
     color: #ccc;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .input-group input,
 .input-group textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 14px 16px;
     border: 1px solid #333;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #2d2d2d;
     color: #fff;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 .input-group input:focus,
 .input-group textarea:focus {
     outline: none;
     border-color: #25d366;
+    box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
 }
 
 .input-group textarea {
-    min-height: 100px;
+    min-height: 120px;
     resize: vertical;
+    font-family: inherit;
 }
 
 /* Button Styles */
 .btn-primary {
     width: 100%;
-    padding: 14px;
-    background-color: #25d366;
+    padding: 16px;
+    background: linear-gradient(135deg, #25d366 0%, #20b858 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #20b858;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
 }
 
 .btn-primary:disabled {
-    background-color: #666;
+    background: #666;
     cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .btn-secondary {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background-color: transparent;
     color: #25d366;
-    border: 1px solid #25d366;
-    border-radius: 8px;
+    border: 2px solid #25d366;
+    border-radius: 10px;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
     background-color: rgba(37, 211, 102, 0.1);
+    transform: translateY(-1px);
 }
 
 /* Main Page */
 .header {
     text-align: center;
     margin-bottom: 30px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .header h1 {
     font-size: 1.8rem;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #fff;
 }
 
 .header p {
     color: #aaa;
     margin-bottom: 15px;
+    font-size: 1rem;
 }
 
 .token-info {
-    background-color: #2d2d2d;
-    padding: 10px 15px;
-    border-radius: 8px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #333 100%);
+    padding: 12px 20px;
+    border-radius: 10px;
     margin-bottom: 20px;
     display: inline-block;
+    border: 1px solid #444;
+    font-weight: 600;
 }
 
 .action-buttons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .form-row {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .form-row .input-group {
     flex: 1;
+    min-width: 200px;
 }
 
 /* Battery Styles */
@@ -163,19 +195,20 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .battery-display {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 }
 
 .battery-icon {
-    width: 25px;
-    height: 12px;
-    border: 1px solid #fff;
-    border-radius: 2px;
+    width: 28px;
+    height: 14px;
+    border: 2px solid #fff;
+    border-radius: 3px;
     position: relative;
     background-color: transparent;
 }
@@ -184,31 +217,38 @@ body {
     height: 100%;
     background-color: #fff;
     border-radius: 1px;
-    transition: width 0.3s;
+    transition: all 0.3s ease;
+    width: 60%;
 }
 
 #battery-percent {
     font-size: 14px;
     color: #ccc;
+    font-weight: 600;
 }
 
 /* Result Container */
 #result-container {
     margin-top: 30px;
     text-align: center;
+    width: 100%;
 }
 
 #screenshot-container {
     margin: 20px 0;
     padding: 20px;
     background-color: #1e1e1e;
-    border-radius: 12px;
+    border-radius: 16px;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
 }
 
 .result-actions {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .hidden {
@@ -218,20 +258,22 @@ body {
 .error-message {
     color: #ff4444;
     margin-top: 15px;
-    padding: 10px;
+    padding: 12px;
     background-color: rgba(255, 68, 68, 0.1);
-    border-radius: 6px;
+    border-radius: 8px;
     display: none;
+    border: 1px solid rgba(255, 68, 68, 0.3);
 }
 
 /* Donate Page */
 .donate-container {
+    width: 100%;
     max-width: 400px;
-    margin: 50px auto;
     padding: 30px;
     background-color: #1e1e1e;
-    border-radius: 12px;
+    border-radius: 16px;
     text-align: center;
+    border: 1px solid #333;
 }
 
 .donate-container h1 {
@@ -241,34 +283,51 @@ body {
 
 .donate-container p {
     color: #aaa;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .qris-container {
     margin: 20px 0;
-    padding: 15px;
+    padding: 20px;
     background-color: white;
-    border-radius: 8px;
+    border-radius: 12px;
     display: inline-block;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 #qris-image {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
+    display: block;
 }
 
-/* WhatsApp Screenshot Styles */
+/* WhatsApp Screenshot Styles - REALISTIC */
 .whatsapp-screenshot {
     width: 375px;
     height: 667px;
-    background-color: #0d1418;
+    background: linear-gradient(135deg, #0d1418 0%, #111b21 100%);
     border-radius: 40px;
-    padding: 40px 20px;
+    padding: 45px 20px 20px 20px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 12px solid #111;
+}
+
+/* iPhone Notch */
+.iphone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 30px;
+    background: #111;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    z-index: 10;
 }
 
 .status-bar {
@@ -276,70 +335,199 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: white;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    position: relative;
+    z-index: 5;
 }
 
 .time {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .status-icons {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .chat-container {
-    background-color: #0d1418;
+    background: transparent;
     padding: 10px;
-    height: 500px;
+    height: 520px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Scrollbar styling */
+.chat-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 2px;
 }
 
 .chat-bubble {
-    max-width: 70%;
+    max-width: 75%;
     padding: 12px 16px;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     border-radius: 18px;
     position: relative;
     word-wrap: break-word;
+    line-height: 1.4;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .chat-bubble.received {
-    background-color: #2a2f32;
-    color: white;
+    background: linear-gradient(135deg, #2a2f32 0%, #262a2d 100%);
+    color: #e9edef;
     align-self: flex-start;
     border-bottom-left-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .chat-bubble.sent {
-    background-color: #056162;
-    color: white;
+    background: linear-gradient(135deg, #056162 0%, #045c5b 100%);
+    color: #e9edef;
     align-self: flex-end;
     margin-left: auto;
     border-bottom-right-radius: 5px;
+    box-shadow: 0 2px 8px rgba(5, 97, 98, 0.3);
 }
 
 .chat-time {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
     text-align: right;
-    margin-top: 5px;
+    margin-top: 4px;
+    font-weight: 500;
 }
 
 .reactions {
     position: absolute;
-    top: -15px;
-    right: 10px;
-    background-color: #2a2f32;
+    top: -12px;
+    right: 12px;
+    background: #2a2f32;
     padding: 4px 8px;
     border-radius: 12px;
     font-size: 12px;
     display: flex;
     align-items: center;
     gap: 2px;
+    border: 1px solid #333;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* WhatsApp Header */
+.whatsapp-header {
+    background: linear-gradient(135deg, #1f2c34 0%, #1b252c 100%);
+    padding: 15px 20px;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.contact-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #25d366 0%, #20b858 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-name {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.contact-status {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+}
+
+/* Custom Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.popup-content {
+    background: linear-gradient(135deg, #1e1e1e 0%, #252525 100%);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    border: 1px solid #333;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: popupShow 0.3s ease-out;
+}
+
+@keyframes popupShow {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.popup-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.popup-title {
+    color: #ff4444;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.popup-message {
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.popup-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
 }
 
 /* Responsive Design */
@@ -350,8 +538,12 @@ body {
     
     .login-container,
     .donate-container {
-        margin: 50px auto;
-        padding: 20px;
+        margin: 20px auto;
+        padding: 25px 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
     }
     
     .form-row {
@@ -361,12 +553,94 @@ body {
     
     .whatsapp-screenshot {
         width: 100%;
-        max-width: 375px;
-        height: auto;
-        min-height: 667px;
+        max-width: 320px;
+        height: 568px;
+        border-radius: 30px;
+        padding: 40px 15px 15px 15px;
     }
     
-    .result-actions {
-        flex-direction: column;
+    .chat-container {
+        height: 430px;
     }
-  }
+    
+    .chat-bubble {
+        max-width: 85%;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-secondary {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .login-container,
+    .donate-container {
+        padding: 20px 15px;
+    }
+    
+    .whatsapp-screenshot {
+        max-width: 280px;
+        height: 500px;
+        border-radius: 25px;
+        padding: 35px 12px 12px 12px;
+    }
+    
+    .chat-container {
+        height: 380px;
+    }
+    
+    .status-bar {
+        font-size: 13px;
+        padding: 0 15px;
+    }
+    
+    .battery-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .popup-content {
+        padding: 25px 20px;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .page {
+        padding: 40px;
+    }
+    
+    .login-container,
+    .donate-container {
+        max-width: 450px;
+    }
+    
+    .main-content {
+        max-width: 700px;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+    }
