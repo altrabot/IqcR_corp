@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQC Generator - WhatsApp iPhone Screenshot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Halaman Login -->
+        <div id="login-page" class="page active">
+            <div class="login-container">
+                <h1>IQC Generator</h1>
+                <p>Buat screenshot chat WhatsApp iPhone yang realistis</p>
+                
+                <form id="login-form">
+                    <div class="input-group">
+                        <label for="username">Nama Pengguna</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="token">Kode Token (TCR)</label>
+                        <input type="text" id="token" placeholder="TCR-xxxxx-XX" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">Lanjutkan</button>
+                </form>
+                
+                <div id="login-error" class="error-message"></div>
+            </div>
+        </div>
+        
+        <!-- Halaman Utama -->
+        <div id="main-page" class="page">
+            <header class="header">
+                <h1>Hi <span id="user-name"></span> 👋</h1>
+                <p>Selamat datang di IQC Generator</p>
+                <div class="token-info">
+                    Sisa TCR kamu: <span id="token-count">0</span>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="donate-btn" class="btn-secondary">Donasi</button>
+                    <button id="order-btn" class="btn-secondary">Order Token</button>
+                </div>
+            </header>
+            
+            <main class="main-content">
+                <form id="chat-form">
+                    <div class="input-group">
+                        <label for="chat-text">Teks Chat</label>
+                        <textarea id="chat-text" placeholder="Ketik pesan di sini..." required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="time">Jam</label>
+                            <input type="text" id="time" placeholder="21:18" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="network">Nama Jaringan SIM</label>
+                            <input type="text" id="network" placeholder="INDOSAT LTE" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="battery">Persentase Baterai</label>
+                        <div class="battery-container">
+                            <input type="range" id="battery" min="0" max="100" value="60">
+                            <div class="battery-display">
+                                <div class="battery-icon">
+                                    <div class="battery-level" id="battery-level"></div>
+                                </div>
+                                <span id="battery-percent">60%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" id="generate-btn" class="btn-primary">Generate Screenshot</button>
+                </form>
+                
+                <div id="result-container" class="hidden">
+                    <h2>Hasil Screenshot</h2>
+                    <div id="screenshot-container">
+                        <!-- Screenshot akan ditampilkan di sini -->
+                    </div>
+                    <div class="result-actions">
+                        <button id="download-btn" class="btn-secondary">Unduh Screenshot</button>
+                        <button id="share-btn" class="btn-secondary">Bagikan Screenshot</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Halaman Donasi -->
+        <div id="donate-page" class="page">
+            <div class="donate-container">
+                <h1>Donasi</h1>
+                <p>Scan QR untuk donasi sukarela 💖</p>
+                <div class="qris-container">
+                    <img src="qris.jpg" alt="QRIS Donasi" id="qris-image">
+                </div>
+                <button id="back-btn" class="btn-secondary">Kembali</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="tokens.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
